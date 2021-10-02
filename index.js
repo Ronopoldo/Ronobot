@@ -1,6 +1,4 @@
 
-const lol = require('./scripts/DATAMANAGE')
-
 const express = require('express'); //Импорт express.js
 const fs = require("fs");
  const talkedRecently = new Set();
@@ -23,6 +21,10 @@ client.on('ready', () => {
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
+// Пример, как подключать функции из соседних файлов
+const f = require( './src/func' );
+const result = f.add(10, 5);
+console.log( 'The result is:' , result);
 
 var xhr = new XMLHttpRequest();
 
@@ -160,8 +162,8 @@ client.user.setStatus('idle') //установка статуса "Не на м�
 //     if ((m+3)>=24) //Если GMT+3 больше 24 (ночи), то вычитается один день из-за разницы часовых поясов
 //       {
 //         SummarCount--;
-//         console.log('Вычтен 1 день, из-за часового пояса!')
-//       } //123, 130 (3 и 10 мая (праздничные дни))
+      //   console.log('Вычтен 1 день, из-за часового пояса!')
+      // } //123, 130 (3 и 10 мая (праздничные дни))
 
 
 // if (day<123) //Если число ДО майских праздников, то вычитается один день
@@ -1002,6 +1004,7 @@ talkedRecently.add(msg.author.id);
   }
   });
 
+////////////
 client.on('message', msg =>
 {
   if (msg.content.toLowerCase().startsWith('/set roblox'))
@@ -1054,7 +1057,7 @@ var jsonResponse = JSON.parse(data);
     msg.reply('Скорее всего, ты ввёл недопустимые знаки!\nКод ошибки: ' + err)
   }
 }})
-
+//////
 
 
 
