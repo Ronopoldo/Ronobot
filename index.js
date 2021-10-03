@@ -9,6 +9,7 @@ const port = 3000; //Присваивание константы порта
 app.listen(port, () => console.log(`Локальный адрес: http://localhost:${port}`)); //Вывод порта
 
 
+
 // ================= КОД БОТА ===================
 const Discord = require('discord.js'); //Импорт библиотеки Discord.js
 alert('1')
