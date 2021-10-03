@@ -24,9 +24,9 @@ client.on('ready', () => {
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 // Пример, как подключать функции из соседних файлов
-const f = require( './src/func' );
-const result = f.add(10, 5);
-console.log( 'The result is:' , result);
+// const f = require( './src/func' );
+// const result = f.add(10, 5);
+// console.log( 'The result is:' , result);
 
 var xhr = new XMLHttpRequest();
 
@@ -1151,6 +1151,7 @@ let pingedUser = ''
 
 client.on('message', msg => {
 if ((msg.content.toLowerCase().startsWith(`/био`) || (msg.content.toLowerCase().startsWith(`/bio`)))) {
+  try{
     const args = msg.content.slice(`/био`).split(/ +/);
     if (args.length >= 2){
    pingedUser = args[1]
@@ -1194,22 +1195,25 @@ if ((msg.content.toLowerCase().startsWith(`/био`) || (msg.content.toLowerCase
 
 // msg.reply('Йо! Произошла ошибка! Напиши <@544902183007813652> о ней. Код ошибки: ' + e)
 // }
+try{
 stringpath = ("./data/UserData/" + pingedUser + '/roles')
 let robloxpath = ("./data/UserData/" + pingedUser + '/roblox')
-let colorPath = './data/UserData/' + msg.author.id + '/color';
+let colorPath = './data/UserData/' + pingedUser + '/color';
 let RobloxName = "Не привязан"
  let ROLES = 'Не привязаны'
  let RobloxName1 = 'ERROR'
  let RobloxLink = 'NULL'
  let RobloxId = ''
  alert(pingedUser)
+ try{
+   //////////////////
 client.users.fetch(pingedUser).then(myUser => {
     console.log(myUser.avatarURL()); 
      let DiscordAvatar = myUser.avatarURL();
 
 
  let authorImage = ''
-try{
+
 
 if (fs.existsSync(colorPath)) {
   COLOR = fs.readFileSync(colorPath, "utf8");}else{COLOR = "#ff8800"}
@@ -1244,6 +1248,14 @@ let UserName = myUser.tag
 .addFields(
         { name: 'Roblox профиль: ' + RobloxName + ' (' + RobloxId +')', value: RobloxLink}, {name: 'Оцифрованные роли:', value: ROLES},)
 .setFooter("Ronoserver Services - Центральное звено", "https://media.discordapp.net/attachments/768414683019345931/841704850139906108/9b6a4cc843e31c1e.png")
-msg.channel.send(embedreply)}catch(err) {msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + err)}});
+msg.channel.send(embedreply)},
+error => {msg.reply('Хей! Произошла попытка при попытке получения польователя >_<\n Проверь, правильно ли ты напиасо его айди.\nКод ошибки: ' + error)})
+}catch(err){msg.reply(err)}}catch(err) {
+  msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + err)};
+
+
+
+}catch(err) {
+  msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + err)}
 }})
 client.login(process.env.DISCORD_TOKEN); //Получение переменной содержащей токен (засекречена)
