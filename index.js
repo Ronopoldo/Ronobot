@@ -822,7 +822,34 @@ client.user.setPresence({ activity: { name: '"Симулятор Хентая"'}
 
 
 
-
+client.on('message', msg => {
+  if (msg.content.toLowerCase().startsWith('/submit') && msg.author.id != '664263594002612263')     if (talkedRecently.has(msg.author.id)) {
+            msg.channel.send("Защита от спама - ждите 5 секунд");
+    } else {{
+      const guild = client.guilds.cache.get("544902879534907392");
+      let publicashionCh = guild.channels.cache.get("894716549498302554")
+      try{
+        publicashionCh.send(msg.author.tag + '(' + msg.author.id + ') кинул это:\n' + msg.content)
+        msg.attachments.forEach(attachment => {
+	const ImageLink = attachment.url;
+	publicashionCh.send(ImageLink)
+});
+        console.log(msg.attachments)
+        msg.reply('Новость успешно отправлена!')
+      }catch(err){
+        msg.reply('Очень странно, но произошла ошибка! Напиши на GitHub бота о ней.\n Также укажи код: ' + err)
+      }
+    
+}
+talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(msg.author.id);
+        }, 5000);
+    }
+    
+    
+    });  
 
 
 //РАБОТА С БАЗОЙ ДАННЫХ
@@ -986,24 +1013,25 @@ talkedRecently.add(msg.author.id);
         
 
 
-    try{
-          let FileData = fs.readFileSync('./data/UserData1/' + msg.author.id, "utf8");
-      let newpath = './data/UserData/' + msg.author.id;
+    // try{
+    //       let FileData = fs.readFileSync('./data/UserData1/' + msg.author.id, "utf8");
+    //   let newpath = './data/UserData/' + msg.author.id;
 
 
-        if (!fs.existsSync(newpath + '/roles')) {
-    fs.mkdir(newpath, err => {})
-    fs.writeFile(newpath + '/roles', '', err => {});
-    fs.appendFile(newpath + '/roles', FileData, err => {})
-    msg.reply('Данные успешно перенесены! Проверь их при помощи /био :3')
-        }else{
-          msg.reply('Хей! Данные уже перенесены! Если ты хочешь добавить новые роли, то пропиши /скан :)')
-        }
+    //     if (!fs.existsSync(newpath + '/roles')) {
+    // fs.mkdir(newpath, err => {})
+    // fs.writeFile(newpath + '/roles', '', err => {});
+    // fs.appendFile(newpath + '/roles', FileData, err => {})
+    // msg.reply('Данные успешно перенесены! Проверь их при помощи /био :3')
+    //     }else{
+    //       msg.reply('Хей! Данные уже перенесены! Если ты хочешь добавить новые роли, то пропиши /скан :)')
+    //     }
 
 
-    }catch(err){
-      msg.reply('Хей! Видимо по всему, ты ещё ни разу ни оцифровывался. Эта команда не для тебя! Пропиши /скан и всё :) Если ты считаешь, что произошла ошибка, то напиши <@544902183007813652>')
-         }
+    // }catch(err){
+    //   msg.reply('Хей! Видимо по всему, ты ещё ни разу ни оцифровывался. Эта команда не для тебя! Пропиши /скан и всё :) Если ты считаешь, что произошла ошибка, то напиши <@544902183007813652>')
+    //      }
+               msg.reply('Хей! Видимо по всему, ты ещё ни разу ни оцифровывался. Эта команда не для тебя! Пропиши /скан и всё :) Если ты считаешь, что произошла ошибка, то напиши <@544902183007813652>')
   }
   });
 
@@ -1249,7 +1277,7 @@ let UserName = myUser.tag
         { name: 'Roblox профиль: ' + RobloxName + ' (' + RobloxId +')', value: RobloxLink}, {name: 'Оцифрованные роли:', value: ROLES},)
 .setFooter("Ronoserver Services - Центральное звено", "https://media.discordapp.net/attachments/768414683019345931/841704850139906108/9b6a4cc843e31c1e.png")
 msg.channel.send(embedreply)},
-error => {msg.reply('Хей! Произошла попытка при попытке получения польователя >_<\n Проверь, правильно ли ты напиасо его айди.\nКод ошибки: ' + error)})
+error => {msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + error)})
 }catch(err){msg.reply(err)}}catch(err) {
   msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + err)};
 
