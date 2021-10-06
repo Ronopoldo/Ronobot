@@ -1095,6 +1095,34 @@ var jsonResponse = JSON.parse(data);
 client.on('message', msg =>
 {
   try{
+  if (msg.content.toLowerCase().startsWith('/set bio'))
+  {
+            const args = msg.content.slice(`/био`).split(/ +/);
+            let Convert1 = args.splice(2,args.length).join(' ')
+            console.log(Convert1)
+  let biopath = './data/UserData/' + msg.author.id;
+        if (!fs.existsSync(biopath)) {
+    fs.mkdir(biopath, err => {})
+        }
+
+        if (Convert1.length < 2048)
+        {
+          try{
+             OldBio = fs.readFileSync(biopath + '/bio', "utf8");
+              msg.reply('Держи свою старую Биографию, которую мы заменили: \n`' + OldBio + '`')
+          }catch(err){}
+          msg.reply('Отлично! Обновил твою биографию! Проверь её при помощи /био')
+            fs.writeFile(biopath + '/bio', Convert1, err => {});
+        }else{ msg.channel.send('Хей! Похоже, твоя биография больше 2048 символов. Пожалуйста сократи его ещё на столько символов: ' + (Convert1.length-2047).toString() + '  :3') }
+}}catch(err){msg.reply('НЕПРЕДВИДЕННАЯ ОШИБКА!\n Сообщи о ней на GitHub бота, указав этот код: ' + err)}})
+
+
+
+
+
+client.on('message', msg =>
+{
+  try{
     if (msg.content.toLowerCase().startsWith('/set colour'))
       {
       
@@ -1227,11 +1255,13 @@ try{
 stringpath = ("./data/UserData/" + pingedUser + '/roles')
 let robloxpath = ("./data/UserData/" + pingedUser + '/roblox')
 let colorPath = './data/UserData/' + pingedUser + '/color';
+let biopath = './data/UserData/' + pingedUser + '/bio';
 let RobloxName = "Не привязан"
  let ROLES = 'Не привязаны'
  let RobloxName1 = 'ERROR'
  let RobloxLink = 'NULL'
  let RobloxId = ''
+ let BIO = '__**У пользователя не установлена биография.**__\n Чтобы поставить биографию, напишите `/set bio [Биография]`\n\n В биографию Вы можете включить любые ссылки, упомянания и всё, что-бы Вы хотели, чтобы другие увиели. В биографии разрешается вставлять рекламу, не смотря на правила сервера.\n\n\nМаксимальная длина биографии 2048 символов. Форматирование текста принимается\nЕсли Вы не хотите, чтобы у Вас была биография и это сообщение, то пропишите `/set bio` без каких-либо аргументов.'
  alert(pingedUser)
  try{
    //////////////////
@@ -1247,6 +1277,8 @@ if (fs.existsSync(colorPath)) {
   COLOR = fs.readFileSync(colorPath, "utf8");}else{COLOR = "#ff8800"}
 if (fs.existsSync(stringpath)) {
   ROLES = fs.readFileSync(stringpath, "utf8");}
+  if (fs.existsSync(biopath)) {
+  BIO = fs.readFileSync(biopath, "utf8");}
 if (!ROLES) {ROLES = '_Отсутсвуют_'} 
 authorImage = msg.author.defaultAvatarURL
 authorLink = 'https://discord.gg/vw6GJCm'
@@ -1273,6 +1305,7 @@ let UserName = myUser.tag
 .setColor(COLOR)
 .setAuthor(UserName, authorImage , authorLink)
 .setThumbnail(DiscordAvatar)
+.setDescription(BIO)
 .addFields(
         { name: 'Roblox профиль: ' + RobloxName + ' (' + RobloxId +')', value: RobloxLink}, {name: 'Оцифрованные роли:', value: ROLES},)
 .setFooter("Ronoserver Services - Центральное звено", "https://media.discordapp.net/attachments/768414683019345931/841704850139906108/9b6a4cc843e31c1e.png")
