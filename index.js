@@ -1,20 +1,17 @@
 
 const express = require('express'); //Импорт express.js
 const fs = require("fs");
- const talkedRecently = new Set();
+const talkedRecently = new Set();
 const app = express(); //Присваивание константы для app
 const port = 3000; //Присваивание константы порта
- app.get('/', (req, res) => res.send('ВАУ БЛЕН  ВСЁ РАБОТАЕТ! АХРЕНЕЕТЬЬ \n PS - консоль немного сдохла, мне лень ее чинить)'));//Уведомление  о нормальном запуске кода
-
+app.get('/', (req, res) => res.send('ВАУ БЛЕН  ВСЁ РАБОТАЕТ! АХРЕНЕЕТЬЬ \n PS - консоль немного сдохла, мне лень ее чинить)'));//Уведомление  о нормальном запуске кода
 
 app.listen(port, () => console.log(`Локальный адрес: http://localhost:${port}`)); //Вывод порта
-
-
 
 // ================= КОД БОТА ===================
 const Discord = require('discord.js'); //Импорт библиотеки Discord.js
 alert('1')
-let LastHour = 0;
+
 const client = new Discord.Client(); //Присваивание константы Клиента
 const guild = client.guilds.cache.get("544902879534907392");
 client.on('ready', () => {
@@ -24,20 +21,16 @@ client.on('ready', () => {
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-// Пример, как подключать функции из соседних файлов
-// const f = require( './src/func' );
-// const result = f.add(10, 5);
-// console.log( 'The result is:' , result);
+
 
 var xhr = new XMLHttpRequest();
 
-alert('1')
+alert('2')
 {
-
-     var d = new Date(); //Получение даты в переменную
+     var nowDate = new Date(); //Получение даты в переменную
 }
 client.on("ready", () => { //начало действий после полной загрузки бота
-alert('1')
+alert('3')
 console.log(n);
   console.log('тип рабет'); //Проверка работоспособности бота
 
@@ -45,285 +38,26 @@ console.log(n);
 client.user.setPresence({ status: "idle" }); //установка статуса "Не на месте"
 client.user.setActivity('хентай :P', { type: 'WATCHING' }); //Установка статуса "Смотрит"
 
-alert('1')
+alert('4')
 client.user.setStatus('idle') //установка статуса "Не на месте" (вторая версия, на случай, если 1 не сработает)
   console.log('тип рабет 2')
 /////////////
 
-
-
-   var interval = setInterval (function () { //Создание интервала проверки времени
-        var d = new Date();
-        var m = d.getHours();
-        // var month = d.getMonth() + 1;
-        // var day2 = d.getDay(); //Получение данных с сервера (выше)
-
-
-      // var now = new Date();
-      // var start = new Date(now.getFullYear(), 0, 0);
-      // var diff = now - start;
-      // var oneDay = 1000 * 60 * 60 * 24;
-//       var day = Math.floor(diff / oneDay); //выше (эта + 4 строки выше) - подсчёт нынешнего дня
-//       console.log(m+3)
-//       if ((m+3)>=24) //Проверка: больше ли GMT+3, чем 24 (разница часовых поясов); день прибавится, если да
-//       {
-//         day++;
-//         console.log('Прибавлен 1 день, из-за часового пояса!')
-//       }
-//       console.log('День: ' + day); //Вывод дня в лог
-// console.log('Час: ' + m); //Вывод часа в лог
-
-
-//       var Type = "";
-
-//       var Deltalol = 152 - day; // 152 - 1 июня (день от начала года, к которому стремится таймер)
-//       var DeltaStr = Deltalol.toString;
-//       console.log(DeltaStr);
-
-//       var lol = 'До лета ';
-//       var intDay = parseInt(Deltalol); //Получение дней до определенного числа
-// let massiv = ["день!", "дня!", "дней!"];
-// let dayMap = new Map([
-//   [1, massiv[0]],
-//   [2 , massiv[1]],
-//   [3, massiv[1]],
-//   [4, massiv[1]],
-//   [5, massiv[2]],
-//   [6, massiv[2]],
-//   [7, massiv[2]],
-//   [8, massiv[2]],
-//   [9, massiv[2]],
-//   [0, massiv[2]]
-// ]);
-
-// var intDayOutput = intDay;
-
-// if (intDay > 20)
-// {
-// intDayOutput = intDay % 10;
-// }
-// else if (intDay > 10) {
-//   intDayOutput = 0;
-// } //выше (до массива) установка верного падежа для слова "День"
-
-
-// var startDate = new Date('19/04/2021');
-//       // if ((m+3)>=24)
-//       // {
-//       //   startDate++;
-//       //   console.log('Прибавлен 1 день, из-за часового пояса!')
-//       // }
-// var endDate = new Date('01/06/2021');
-// var numOfDates = getBusinessDatesCount(startDate,endDate);
-
-// function getBusinessDatesCount(startDate, endDate) {
-//     var count = 0;
-//     var curDate = startDate;
-//     while (curDate <= endDate) {
-//         var dayOfWeek = curDate.getDay();
-//         if(!((dayOfWeek == 6) || (dayOfWeek == 0)))
-//            count++;
-//         curDate.setDate(curDate.getDate() + 1);
-//     }
-//     alert('Лох! Работай еще столько дней:');
-//     alert(count)
-//     return count;
-// }
-// alert(numOfDates)
-//НЕрабочий код ^^^^^^^
-
-// function DayCount() //ввод БЕЗ аргументов
-// {
-//    var d2 = new Date(2021,05,01); // Итоговый день
-//    var d1 = new Date(2021, d.getMonth(), d.getDate()); //Формат: год, месяц, день (заменить год на нынешний или поставить d.getYear() d - нынешнее число) 
-
-// alert("Щас:" + d1)
-// alert("Цель:" + d2)
-   
-//    var flag=true;
-//    var day,daycount=0;
-//    while(flag)
-//    {
-//     day3=d1.getDay();
-//     if(day3 != 0 && day3 != 6)  { // если день не суббота и не воскресенье, то прибавляет счётчик дней (итог)
-//       daycount++;
-// if (m+3>18) //Вычитается день, если время 18 и выше
-// {
-//   SummarCount--
-// }
-	   
-//     }
-//     d1.setDate(d1.getDate()+1) ;
-//     if(d1.getDate() == d2.getDate() &&
-//       d1.getMonth()== d2.getMonth()) // Если даты совпали, то отключать цикл
-//       {
-//         flag=false;
-//       }
-//  }
-//  return daycount;
-// }
-// var SummarCount = DayCount();
-//     if ((m+3)>=24) //Если GMT+3 больше 24 (ночи), то вычитается один день из-за разницы часовых поясов
-//       {
-//         SummarCount--;
-      //   console.log('Вычтен 1 день, из-за часового пояса!')
-      // } //123, 130 (3 и 10 мая (праздничные дни))
-
-
-// if (day<123) //Если число ДО майских праздников, то вычитается один день
-// {
-//   SummarCount--
-// }
-
-// if (day<130) //Если число ДО майских праздников, то вычитается один день
-// {
-//   SummarCount--
-// }
-
-// if (day<124) //Если число ДО майских праздников, то вычитается один день
-// {
-//   SummarCount--
-// }
-// if (day<125) //Если число ДО майских праздников, то вычитается один день
-// {
-//   SummarCount--
-// }
-// if (day<126) //Если число ДО майских праздников, то вычитается один день
-// {
-//   SummarCount--
-// }
-// if (day<127) //Если число ДО майских праздников, то вычитается один день
-// {
-//   SummarCount--
-// }
-// alert('Лох! Работай еще столько дней: ' + SummarCount); //Вывод в консоль
-
-
-// console.log(day + ' ' +  dayMap.get(intDayOutput));
-
-//       var Test1 = ['ʀᴏɴᴏᴘᴏʟᴅᴏ'] //      var Test1 = ['ʀᴏɴᴏᴘᴏʟᴅᴏ - До лета ', Deltalol, ' ', dayMap.get(intDayOutput), ' Из них ', SummarCount,' - рабочие']
-//       let Test2 = Test1.join(''); //Создание переменной, которая будет выводиться в название сервера
-//       console.log(Test2); //Вывод переменной выше
-      
+const fInterval = require( './src/interval' );
+fInterval.set(client);
 
 
 
-// if (m>=22 || m>=0 && m<1) { // Проверка: ночь ли в данный момент
-//         console.log("КАПЭС НОЧЬ УЖЕ!");
-//         app.get('/', (req, res) => res.send('КАПЭС НОЧЬ УЖЕ!'));
-//         const guild = client.guilds.cache.get("544902879534907392");
-//         guild.setIcon('./images/icons/Night.gif'); //Установка значка
-//         }
-
-//         if (m>=1 && m<8) { // Проверка: утро  ли в данный момент
-//         console.log("УТРО! ПАРА ВСТАВАЦ НА");
-//         app.get('/', (req, res) => res.send('УТРО! ПАРА ВСТАВАЦ НА'));
-//         const guild = client.guilds.cache.get("544902879534907392");
-//         guild.setIcon('./images/icons/Morning.gif'); //Установка значка
-
-//         }
-
-//         if (m>=8 && m<15) { // Проверка: день ли в данный момент
-//         console.log("КАПЭС!!! ДЕНЬ ЧОРТ ПАБИРИ");
-//         app.get('/', (req, res) => res.send('КАПЭС!!! ДЕНЬ ЧОРТ ПАБИРИ'));
-//         const guild = client.guilds.cache.get("544902879534907392");
-//         guild.setIcon('./images/icons/Day.gif'); //Установка значка
-//         }
-
-//                 if (m>=15 && m<22) { // Проверка: вечер ли в данный момент
-//         console.log("ЖЭСТЬ ВАЩЭ УЖЭ ВЕЧИР!!!!11!!");
-//         app.get('/', (req, res) => res.send('ЖЭСТЬ ВАЩЭ УЖЭ ВЕЧИР!!!!11!!'));
-//         const guild = client.guilds.cache.get("544902879534907392");
-//         guild.setIcon('./images/icons/Evening.gif'); //Установка значка
-//         }
-//         const guild = client.guilds.cache.get("544902879534907392"); // Создание константы, хранящей айди сервера
-//         // guild.setName(Test2); //Установка (Test2)соответсвующего имени сервера
-if (m+3>24)
-{
-  m = m + 3 - 24
-} else {
-  m = m+3
-}
-        const guild = client.guilds.cache.get("544902879534907392");
-console.log('m='+m)
-
-//Смена иконки сервера в зависимости от времени (m=час по мск)
-
-console.log('LastHour='+LastHour)
-      console.log('Час (МСК): '+ m)
-      if (m > 12 && m!=24)
-      {
-        if (m-12!=LastHour)
-        {
-          console.log('НОВЫЙ ЧАС! СОБЫТИЕ: СМЕНА ЗНАЧКА');
-        mn = m - 12;
-        var PartDirection = ['./images/AdvancedIcons/' + mn + 'pm.gif']
-        let FullDirection = PartDirection.join('');
-        console.log(FullDirection);
-        guild.setIcon(FullDirection); //Установка значка
-        LastHour=mn;
-        }
-      }else{
-                if (m!=LastHour)
-        {
-           if (m!=24)
-           {
-          console.log('НОВЫЙ ЧАС! СОБЫТИЕ: СМЕНА ЗНАЧКА');
-        var PartDirection = ['./images/AdvancedIcons/' + m + 'am.gif']
-        let FullDirection = PartDirection.join('');
-        console.log(FullDirection);
-        guild.setIcon(FullDirection); //Установка значка
-        LastHour=m;
-           }
-  
-        {
-         guild.setIcon('./images/AdvancedIcons/12am.gif'); 
-        }
-        }
-      }
-      console.log(LastHour)
-        
-    }, 30000);  //900000 - интервал в милисекундах между проверками (900 000 = 15 минут)
- 
-// var interval = setInterval (function () { //Интервал на обновление темы (описания) канала в течении каждых 10 минут
-//      let data = fs.readFileSync("./data/CurrentCount", "utf8"); //нужен файл по дериктории ./data/ с названием CurrentCount содержащий ЦЕЛОЕ числовое значение - последнее названное число
-//       let needc = client.channels.cache.get('863309558209576960') //анал со счётом
-//       var pindate = new Date();
-//       var pinhours = pindate.getHours() + 3
-//       var pinmonth = pindate.getMonth() + 1
-//       if (pinhours > 23) { pinhours = pinhours - 24 }
-//       let chtopic = 'Считаем разряды двоичной системы до бесконечности! Последнее число: ' + data + ' (обновляется плохо из-за лимитов дискорда) \nПоследнее обновление: ' + pindate.getDate() + '.0' + pinmonth + '.' + pindate.getFullYear() + ' в ' + pinhours + ':' + pindate.getMinutes() + ':' + pindate.getSeconds()
-//       console.log(chtopic)
-//       needc.setTopic(chtopic)
-// }, 30000); //300000; лимиты дискорда позавляют менять тему (описание) канала не более 2 раз в 10 минут ;-;
+const messagePingParser = require( './src/messagesParsers/ping' );
+const messageLoop4Parser = require( './src/messagesParsers/loop4' );
+const messageLockdownParser = require( './src/messagesParsers/lockdown' );
+const messageBioParser = require( './src/messagesParsers/bio' );
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === '/ping') { //Команда пинга (все команды ниже работают по тому же принципу)
-
-
-
-        msg.reply('ПОНГ БЛЯТЬ!'); //Ответ на сообщение ПЕРЕД вычислением пинга
-        msg.channel.send(new Date().getTime() - msg.createdTimestamp + " милясякунт пинг нахуй!");  //Вычисление и вывод пинга (зарегистрированное время минус фактическое время)
-  }
-}); 
-client.on('message', msg => {
-          if (msg.content === "$loop4") { 
-        if (!msg.member.hasPermission("ADMINISTRATOR")) return
-        var interval = setInterval (function () {
-            // use the message's channel (TextChannel) to send a new message
-            msg.channel.send("Мда... Верят какому то дауну... Пиздец блять", 1*100)
-            .catch(console.error); // add error handling here
-        }, 10000); 
-    }
-  }); 
-//https://cdn.discordapp.com/attachments/698853696817070164/796793748573913098/2.mp4
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === '/lockdown') {
-
-
-
-        msg.reply('https://cdn.discordapp.com/attachments/698853696817070164/796793748573913098/2.mp4');
-  }
+  messagePingParser.parse(msg); 
+  messageLoop4Parser.parse(msg);
+  messageLockdownParser.parse(msg);
+  messageBioParser.parse(msg, client, fs, Discord);
 }); 
 
 
@@ -339,71 +73,16 @@ client.on('message', msg => {
   }
 }); 
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'пинг') {
-
-
-        // msg.reply('в пизду пошёл окда?')
-        msg.reply('ПОНГ БЛЯТЬ!');
-        msg.channel.send(new Date().getTime() - msg.createdTimestamp + " милясякунт пинг нахуй!"); 
-  }
-});
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === '/пинг') {
-
-
-
-        msg.reply('ПОНГ БЛЯТЬ!');
-        msg.channel.send(new Date().getTime() - msg.createdTimestamp + " милясякунт пинг нахуй!"); 
-  }
-});
             
- var n = d.getHours();
-
-client.on('message', function(message) { //Старая команда для запуска интервала по смене значков
-          if (message.content === "$ЛОЛЛОЛ") { 
-        if (!message.member.hasPermission("ADMINISTRATOR")) return
-        var interval = setInterval (function () {
+ var n = nowDate.getHours();
 
 
-   var d = new Date();
- var m = d.getHours();
-if (m>=20 || m>=0 && m<3) {
-message.channel.send("КАПЭС НОЧЬ УЖЕ!");
-const guild = client.guilds.cache.get("544902879534907392");
-guild.setIcon('./Night.gif');
-}
-
-if (m>=3 && m<8) {
-message.channel.send("УТРО! ПАРА ВСТАВАЦ НА");
-const guild = client.guilds.cache.get("544902879534907392");
-guild.setIcon('./Morning.gif');
-}
+// var nowDate = new Date();
+// var n = nowDate.getHours();
+// var hoursCount = nowDate.getMinutes();
 
 
-if (m>=8 && m<15) {
-message.channel.send("КАПЭС!!! ДЕНЬ ЧОРТ ПАБИРИ");
-const guild = client.guilds.cache.get("544902879534907392");
-guild.setIcon('./Day.gif');
-}
-
-
-
-            message.channel.send(m, 1*100)
-
-
-            .catch(console.error); // вывод ошибки
-        }, 1000);  //Тут я ничего писать не буду) Всё можно найти в интервале выше
-    }
-});
-
-// var d = new Date();
-// var n = d.getHours();
-// var m = d.getMinutes();
-
-
-// while (m==29) {
+// while (hoursCount==29) {
   
 // while (n<24) {
 
@@ -469,6 +148,8 @@ const Rules = new Discord.MessageEmbed()
 //     // msg.reply(args[args[1]]);
 // }
 // });
+
+
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '/seeya') { //Embed сообщение про переезд
@@ -1138,7 +819,7 @@ client.on('message', msg =>
       if ((DetailedColor.length == 6) || (DetailedColor.length == 7))
         {
             DetailedColor[counter] = DetailedColor[counter].toLowerCase() 
-            if ((DetailedColor[counter] == '1') || (DetailedColor[counter] == '2') || (DetailedColor[counter] == '3') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '4') || (DetailedColor[counter] == '5') || (DetailedColor[counter] == '6') || (DetailedColor[counter] == '7') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '8') || (DetailedColor[counter] == '9') || (DetailedColor[counter] == 'a') || (DetailedColor[counter] == 'b') || (DetailedColor[counter] == 'c') || (DetailedColor[counter] == 'd') || (DetailedColor[counter] == 'e') || (DetailedColor[counter] == 'f') || (DetailedColor[counter] == '#') || (DetailedColor[counter] == '0'))
+            if ((DetailedColor[counter] == '1') || (DetailedColor[counter] == '2') || (DetailedColor[counter] == '3') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '4') || (DetailedColor[counter] == '5') || (DetailedColor[counter] == '6') || (DetailedColor[counter] == '7') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '8') || (DetailedColor[counter] == '9') || (DetailedColor[counter] == 'a') || (DetailedColor[counter] == 'b') || (DetailedColor[counter] == 'c') || (DetailedColor[counter] == 'nowDate') || (DetailedColor[counter] == 'e') || (DetailedColor[counter] == 'f') || (DetailedColor[counter] == '#') || (DetailedColor[counter] == '0'))
             {
               console.log(DetailedColor[counter] + ' Прошло! ПЕРВИЧНЫЙ ТЕСТ')
             }else
@@ -1158,7 +839,7 @@ client.on('message', msg =>
               console.log('Бля! Страшно! Вырубаем')
               active = false
             }
-            if ((DetailedColor[counter] == '1') || (DetailedColor[counter] == '2') || (DetailedColor[counter] == '3') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '4') || (DetailedColor[counter] == '5') || (DetailedColor[counter] == '6') || (DetailedColor[counter] == '7') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '8') || (DetailedColor[counter] == '9') || (DetailedColor[counter] == 'a') || (DetailedColor[counter] == 'b') || (DetailedColor[counter] == 'c') || (DetailedColor[counter] == 'd') || (DetailedColor[counter] == 'e') || (DetailedColor[counter] == 'f') || (DetailedColor[counter] == '0'))
+            if ((DetailedColor[counter] == '1') || (DetailedColor[counter] == '2') || (DetailedColor[counter] == '3') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '4') || (DetailedColor[counter] == '5') || (DetailedColor[counter] == '6') || (DetailedColor[counter] == '7') || (DetailedColor[counter] == '1') || (DetailedColor[counter] == '8') || (DetailedColor[counter] == '9') || (DetailedColor[counter] == 'a') || (DetailedColor[counter] == 'b') || (DetailedColor[counter] == 'c') || (DetailedColor[counter] == 'nowDate') || (DetailedColor[counter] == 'e') || (DetailedColor[counter] == 'f') || (DetailedColor[counter] == '0'))
             {
               console.log(DetailedColor[counter] + ' Прошло!')
             }else
@@ -1204,120 +885,5 @@ client.on('message', msg =>
 
 
     //////////////ЦИФРОВОЙ ПАСПОРТ
-let pingedUser = ''
 
-client.on('message', msg => {
-if ((msg.content.toLowerCase().startsWith(`/био`) || (msg.content.toLowerCase().startsWith(`/bio`)))) {
-  try{
-    const args = msg.content.slice(`/био`).split(/ +/);
-    if (args.length >= 2){
-   pingedUser = args[1]
-        pingedUser = pingedUser.replace("<@",'')
-     pingedUser = pingedUser.replace("!",'')
-     pingedUser = pingedUser.replace(">",'')
-    }
-
-        if (args.length >= 2){
-   pingedUser = args[1]
-    }
-        if ((args.length >= 2) && (!args[1].includes('<@'))){
-          pingedUser = '<@' + args[1] + '>'
-          console.log(pingedUser)
-    }
-
-   if (args.length == 1){
-     console.log('прошло')
-     
-      pingedUser = '<@' + msg.author.id +">"
-   }
-
-       if (args.length > 2){    
-      msg.reply('Слишком много аргументов! После команды Вам следует написать лишь один аргумент - упомянание пользователя, его id или вообще не использовать аргументы.\nНе смотря на это, мы всё равно попробуем распознать упомянание')
-   }
-
-
-   if (pingedUser.includes('<@'))
-   {
-     pingedUser = pingedUser.replace("<@",'')
-     pingedUser = pingedUser.replace("!",'')
-     pingedUser = pingedUser.replace(">",'')
-   }else {pingedUser = 'Не найдено пользователей! Используйте упомянание или его id, чтобы указать пользователя'}
-   console.log(pingedUser)
-
-// try{
-
-// }catch(e){
-
-// functionToHandleError(e);
-
-// msg.reply('Йо! Произошла ошибка! Напиши <@544902183007813652> о ней. Код ошибки: ' + e)
-// }
-try{
-stringpath = ("./data/UserData/" + pingedUser + '/roles')
-let robloxpath = ("./data/UserData/" + pingedUser + '/roblox')
-let colorPath = './data/UserData/' + pingedUser + '/color';
-let biopath = './data/UserData/' + pingedUser + '/bio';
-let RobloxName = "Не привязан"
- let ROLES = 'Не привязаны'
- let RobloxName1 = 'ERROR'
- let RobloxLink = 'NULL'
- let RobloxId = ''
- let BIO = '__**У пользователя не установлена биография.**__\n Чтобы поставить биографию, напишите `/set bio [Биография]`\n\n В биографию Вы можете включить любые ссылки, упомянания и всё, что-бы Вы хотели, чтобы другие увиели. В биографии разрешается вставлять рекламу, не смотря на правила сервера.\n\n\nМаксимальная длина биографии 2048 символов. Форматирование текста принимается\nЕсли Вы не хотите, чтобы у Вас была биография и это сообщение, то пропишите `/set bio` без каких-либо аргументов.'
- alert(pingedUser)
- try{
-   //////////////////
-client.users.fetch(pingedUser).then(myUser => {
-    console.log(myUser.avatarURL()); 
-     let DiscordAvatar = myUser.avatarURL();
-
-
- let authorImage = ''
-
-
-if (fs.existsSync(colorPath)) {
-  COLOR = fs.readFileSync(colorPath, "utf8");}else{COLOR = "#ff8800"}
-if (fs.existsSync(stringpath)) {
-  ROLES = fs.readFileSync(stringpath, "utf8");}
-  if (fs.existsSync(biopath)) {
-  BIO = fs.readFileSync(biopath, "utf8");}
-if (!ROLES) {ROLES = '_Отсутсвуют_'} 
-authorImage = msg.author.defaultAvatarURL
-authorLink = 'https://discord.gg/vw6GJCm'
-if (fs.existsSync(robloxpath)) {
- tempRoblox =  fs.readFileSync(robloxpath, "utf8");
-console.log(tempRoblox)
-tempRobloxSplit = tempRoblox.split('|');
-
- RobloxName = tempRobloxSplit[1]
- RobloxId = tempRobloxSplit[0]
- RobloxLink = 'https://www.roblox.com/users/' + RobloxId + '/profile'
-console.log('Name: ' + RobloxName + '; ID: ' + RobloxId)
-authorImage = msg.author.defaultAvatarURL
-authorImage = 'https://www.roblox.com/headshot-thumbnail/image?userId=' + RobloxId + '&width=420&height=420&format=png';
-authorLink = RobloxLink
-}else{RobloxName = 'Не привязан.'
-RobloxLink = 'Привяжите при помощи /set roblox <Имя Пользователя>'}
-
-
-let UserName = myUser.tag
-// let pname = client.guilds.cache(544902879534907392).members.fetch(pingedUser).username
-// console.log(pname)
-       let embedreply = new Discord.MessageEmbed()
-.setColor(COLOR)
-.setAuthor(UserName, authorImage , authorLink)
-.setThumbnail(DiscordAvatar)
-.setDescription(BIO)
-.addFields(
-        { name: 'Roblox профиль: ' + RobloxName + ' (' + RobloxId +')', value: RobloxLink}, {name: 'Оцифрованные роли:', value: ROLES},)
-.setFooter("Ronoserver Services - Центральное звено", "https://media.discordapp.net/attachments/768414683019345931/841704850139906108/9b6a4cc843e31c1e.png")
-msg.channel.send(embedreply)},
-error => {msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + error)})
-}catch(err){msg.reply(err)}}catch(err) {
-  msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + err)};
-
-
-
-}catch(err) {
-  msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + err)}
-}})
 client.login(process.env.DISCORD_TOKEN); //Получение переменной содержащей токен (засекречена)

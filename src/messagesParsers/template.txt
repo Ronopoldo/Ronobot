@@ -1,0 +1,7 @@
+// Обработка команды /ping
+function parse(msg) {
+
+Команда
+
+}
+module.exports = { parse }
