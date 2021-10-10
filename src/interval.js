@@ -2,7 +2,7 @@ function set(client) {
   var interval = setInterval (function () { //Создание интервала проверки времени
         let LastHour = 0;
         var nowDate = new Date();
-        var hoursCount = nowDate.getHours();
+        var hoursCount = nowDate.getHours()
         // var month = nowDate.getMonth() + 1;
         // var day2 = nowDate.getDay(); //Получение данных с сервера (выше)
 
