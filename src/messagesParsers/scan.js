@@ -1,6 +1,6 @@
 // Обработка команды /ping
-function parse(msg, Discord, client, fs) {
-  const talkedRecently = new Set();
+function parse(msg, Discord, client, fs, talkedRecently) {
+
   if (msg.content.toLowerCase() === '/скан')     if (talkedRecently.has(msg.author.id)) {
             msg.channel.send("Хей! Команду можно использовать лишь раз в 2 часа! Пожалуйста, подожди ещё немного :3");
     } else {{

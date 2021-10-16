@@ -54,12 +54,18 @@ stringpath = ("./data/UserData/" + pingedUser + '/roles')
 let robloxpath = ("./data/UserData/" + pingedUser + '/roblox')
 let colorPath = './data/UserData/' + pingedUser + '/color';
 let biopath = './data/UserData/' + pingedUser + '/bio';
+let youtubepath = './data/UserData/' + pingedUser + '/youtube';
 let RobloxName = "Не привязан"
  let ROLES = 'Не привязаны'
  let RobloxName1 = 'ERROR'
  let RobloxLink = 'NULL'
  let RobloxId = ''
  let BIO = '__**У пользователя не установлена биография.**__\n Чтобы поставить биографию, напишите `/set bio [Биография]`\n\n В биографию Вы можете включить любые ссылки, упомянания и всё, что-бы Вы хотели, чтобы другие увиели. В биографии разрешается вставлять рекламу, не смотря на правила сервера.\n\n\nМаксимальная длина биографии 2048 символов. Форматирование текста принимается\nЕсли Вы не хотите, чтобы у Вас была биография и это сообщение, то пропишите `/set bio` без каких-либо аргументов.'
+
+ let YOUTUBE = ''
+ let YoutubeName = ''
+ let YoutubeData = '**__Ютуб ещё не привязан!__**\nЧтобы привязать Ютуб канал, пропишите команду `/set youtube <Идентификатор канала | Полная ссылка на канал>`'
+
  console.log(pingedUser)
  try{
    //////////////////
@@ -77,6 +83,8 @@ if (fs.existsSync(stringpath)) {
   ROLES = fs.readFileSync(stringpath, "utf8");}
   if (fs.existsSync(biopath)) {
   BIO = fs.readFileSync(biopath, "utf8");}
+    if (fs.existsSync(youtubepath)) {
+  YOUTUBE = fs.readFileSync(youtubepath, "utf8");}
 if (!ROLES) {ROLES = '_Отсутсвуют_'} 
 authorImage = msg.author.defaultAvatarURL
 authorLink = 'https://discord.gg/vw6GJCm'
@@ -96,6 +104,13 @@ authorLink = RobloxLink
 RobloxLink = 'Привяжите при помощи /set roblox <Имя Пользователя>'}
 
 
+if (YOUTUBE != '')
+{
+  let TempMassive = YOUTUBE.split('\n');
+  YoutubeData = 'Подписчики: `' + TempMassive[5] + '`\nПросмотры: `' + TempMassive[3] + '`\nВидео: `' + TempMassive[4] + '`\nСсылка: https://youtube.com/channel/' + TempMassive[1] + '\n\n_Информация актуальна на ' + TempMassive[6] + '_' 
+  YoutubeName = TempMassive[2]
+}
+
 let UserName = myUser.tag
 // let pname = client.guilds.cache(544902879534907392).members.fetch(pingedUser).username
 // console.log(pname)
@@ -105,7 +120,7 @@ let UserName = myUser.tag
 .setThumbnail(DiscordAvatar)
 .setDescription(BIO)
 .addFields(
-        { name: 'Roblox профиль: ' + RobloxName + ' (' + RobloxId +')', value: RobloxLink}, {name: 'Оцифрованные роли:', value: ROLES},)
+        { name: 'Roblox профиль: ' + RobloxName + ' (' + RobloxId +')', value: RobloxLink}, {name: 'YouTube: ' + YoutubeName, value: YoutubeData}, {name: 'Оцифрованные роли:', value: ROLES},)
 .setFooter("Ronoserver Services - Центральное звено", "https://media.discordapp.net/attachments/768414683019345931/841704850139906108/9b6a4cc843e31c1e.png")
 msg.channel.send(embedreply)},
 error => {msg.reply('Не удалось найти данные о пользователе. Вероятнее всего произошло что-то из следующего:\n1) Формат пользователя введён неправильно. Введите ID пользователя или упомяните его. Если Вы хотите посмотреть свой паспорт, то пропишите /био без каких-либо аргументов\n2) Пользователь ещё не выполнял цифравизацию ролей.\nКод ошибки: ' + error)})

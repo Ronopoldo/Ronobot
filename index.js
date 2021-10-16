@@ -38,7 +38,7 @@ client.user.setStatus('idle')
 //               V
 //    messageLoop4Parser.parse(msg);
 
-const fInterval = require( './src/interval' );
+// const fInterval = require( './src/interval' );
 const messagePingParser = require( './src/messagesParsers/ping' );
 const messageLoop4Parser = require( './src/messagesParsers/loop4' );
 const messageLockdownParser = require( './src/messagesParsers/lockdown' );
@@ -67,9 +67,9 @@ const messageScanParser = require( './src/messagesParsers/scan' );
 const messageTransferParser = require( './src/messagesParsers/transfer' );
 const messageSetBioParser = require( './src/messagesParsers/setBio' );
 const messageColourParser = require( './src/messagesParsers/colour' );
- 
+ const messageYouTubeParser = require( './src/messagesParsers/youtube' );
 
- fInterval.set(client);
+ // fInterval.set(client);
 client.on('message', msg => {
   messagePingParser.parse(msg); 
   messageLoop4Parser.parse(msg);
@@ -94,11 +94,12 @@ client.on('message', msg => {
   messageEmosParser.parse(msg, Discord, client);
   countSystem.parse(msg, Discord, client);
   messageSubmitParser.parse(msg, Discord, client);
-  messageScanParser.parse(msg, Discord, client,fs);
+  messageScanParser.parse(msg, Discord, client,fs,talkedRecently);
   messageTransferParser.parse(msg, Discord, client,fs);
   messageRobloxParser.parse(msg, client, fs, Discord, xhr);
   messageSetBioParser.parse(msg, client, fs, Discord, xhr);
   messageColourParser.parse(msg, Discord, client,fs);
+  messageYouTubeParser.parse(msg, Discord, client,fs,talkedRecently);
 }); 
 
 
