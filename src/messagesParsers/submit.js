@@ -15,7 +15,7 @@ function parse(msg, Discord, client) {
         console.log(msg.attachments)
         msg.reply('Новость успешно отправлена!')
       }catch(err){
-        msg.reply('Очень странно, но произошла ошибка! Напиши на GitHub бота о ней.\n Также укажи код: ' + err)
+        msg.reply('Очень странно, но произошла ошибка! Напиши на GitHub бота о ней.\n Также укажи код: `' + err + '`')
       }
     
 }

@@ -43,12 +43,12 @@ if (typeof requestID !== 'undefined')
 }else{
     var data=xhr.responseText;
 var jsonResponse = JSON.parse(data); 
-  msg.reply('Произошла ошибка! Пользователь не найден!\nКод ошибки: ' + jsonResponse["errorMessage"])
+  msg.reply('Произошла ошибка! Пользователь не найден!\nКод ошибки: `' + jsonResponse["errorMessage"] + '`')
 }
 // console.log(JSON) 
   }
   }catch(err) {
-    msg.reply('Скорее всего, ты ввёл недопустимые знаки!\nКод ошибки: ' + err)
+    msg.reply('Скорее всего, ты ввёл недопустимые знаки!\nКод ошибки: `' + err +'`')
   }
 }}
 module.exports = { parse }

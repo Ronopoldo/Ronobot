@@ -68,6 +68,7 @@ const messageTransferParser = require( './src/messagesParsers/transfer' );
 const messageSetBioParser = require( './src/messagesParsers/setBio' );
 const messageColourParser = require( './src/messagesParsers/colour' );
  const messageYouTubeParser = require( './src/messagesParsers/youtube' );
+ const messageCityParser = require( './src/messagesParsers/city' );
 
  // fInterval.set(client);
 client.on('message', msg => {
@@ -94,14 +95,17 @@ client.on('message', msg => {
   messageEmosParser.parse(msg, Discord, client);
   countSystem.parse(msg, Discord, client);
   messageSubmitParser.parse(msg, Discord, client);
-  messageScanParser.parse(msg, Discord, client,fs,talkedRecently);
+  // messageScanParser.parse(msg, Discord, client,fs,talkedRecently); //Скан
   messageTransferParser.parse(msg, Discord, client,fs);
   messageRobloxParser.parse(msg, client, fs, Discord, xhr);
   messageSetBioParser.parse(msg, client, fs, Discord, xhr);
   messageColourParser.parse(msg, Discord, client,fs);
   messageYouTubeParser.parse(msg, Discord, client,fs,talkedRecently);
-}); 
+  messageCityParser.parse(msg, Discord, client,fs,talkedRecently);
 
+
+
+}); 
 
 });
 

@@ -1,7 +1,7 @@
 // Обработка команды /ping
 function parse(msg, Discord, client,fs) {
   try{
-    if (msg.content.toLowerCase().startsWith('/set colour'))
+    if ((msg.content.toLowerCase().startsWith('/set colour')) || (msg.content.toLowerCase().startsWith('/set color')))
       {
       
       const args = msg.content.slice(`/био`).split(/ +/);
@@ -71,7 +71,7 @@ function parse(msg, Discord, client,fs) {
         }
       }
     }catch(err){
-      msg.reply('Прости! Что-то сломалось :( Напиши на GitHub бота об ошибке, пожалуйста и укажи данный код: ' + err)//Ондрей блять что ты там делаешь сука?
+      msg.reply('Прости! Что-то сломалось :( Напиши на GitHub бота об ошибке, пожалуйста и укажи данный код: `' + err + '`')//Ондрей блять что ты там делаешь сука?
     }
 }
 module.exports = { parse }
