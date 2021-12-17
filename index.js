@@ -92,7 +92,7 @@ client.on('message', msg => {
   messageTalentShowParser.parse(msg, Discord);
   messageAdminParser.parse(msg, Discord, client);
   messageModerParser.parse(msg, Discord, client);
-  messageEmosParser.parse(msg, Discord, client);
+  // messageEmosParser.parse(msg, Discord, client);
   countSystem.parse(msg, Discord, client);
   messageSubmitParser.parse(msg, Discord, client);
   // messageScanParser.parse(msg, Discord, client,fs,talkedRecently); //Скан
